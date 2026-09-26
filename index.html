@@ -2,19 +2,26 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Para Victoria ❤️</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:#fff7fa;
-  color:#4b2835;
-  overflow-x:hidden
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
-button{font-family:inherit}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:#fff6f9;
+  color:#4d2936;
+  overflow-x:hidden;
+}
 
 /* PORTADA */
 #portada{
@@ -24,735 +31,859 @@ button{font-family:inherit}
   justify-content:center;
   text-align:center;
   padding:25px;
-  position:relative;
   background:
-    linear-gradient(rgba(35,0,18,.25),rgba(45,0,20,.72)),
+    linear-gradient(rgba(30,0,15,.25),rgba(40,0,20,.75)),
     url("foto1.jpg") center/cover no-repeat;
 }
-.portadaContenido{
+
+.portada-contenido{
   color:white;
-  max-width:530px;
+  max-width:550px;
   animation:entrada 1.4s ease;
 }
+
 @keyframes entrada{
-  from{opacity:0;transform:translateY(35px) scale(.95)}
-  to{opacity:1;transform:none}
+  from{
+    opacity:0;
+    transform:translateY(35px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
 }
-.corazonGrande{
-  font-size:68px;
-  animation:latido 1.15s infinite
+
+.corazon-portada{
+  font-size:70px;
+  animation:latido 1.2s infinite;
 }
+
 @keyframes latido{
-  0%,100%{transform:scale(1)}
-  50%{transform:scale(1.18)}
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.18);}
 }
+
 #portada h1{
   font-size:46px;
   margin:12px 0;
-  text-shadow:0 4px 15px #000
+  text-shadow:0 4px 15px #000;
 }
+
 #portada p{
   font-size:18px;
-  line-height:1.65;
-  text-shadow:0 2px 8px #000
+  line-height:1.7;
+  text-shadow:0 2px 8px #000;
 }
-.botonAbrir{
-  margin-top:28px;
-  border:0;
+
+.boton{
+  margin-top:25px;
+  border:none;
+  padding:16px 27px;
   border-radius:50px;
-  padding:17px 30px;
   background:white;
-  color:#cf2d68;
+  color:#c92862;
   font-size:17px;
   font-weight:bold;
-  box-shadow:0 10px 30px #0006;
-  animation:flotar 2s infinite ease-in-out
-}
-@keyframes flotar{
-  50%{transform:translateY(-8px)}
+  cursor:pointer;
 }
 
 /* CONTENIDO */
-#historia{display:none}
-.cabecera{
-  padding:65px 20px;
+#contenido{
+  display:none;
+}
+
+.hero{
   text-align:center;
   color:white;
-  background:linear-gradient(135deg,#ff789d,#c62560)
+  padding:65px 20px;
+  background:linear-gradient(135deg,#ff85a7,#c42660);
 }
-.cabecera h2{font-size:36px;margin-bottom:12px}
-.cabecera p{
-  max-width:620px;
+
+.hero h2{
+  font-size:35px;
+  margin-bottom:12px;
+}
+
+.hero p{
+  max-width:650px;
   margin:auto;
   font-size:18px;
-  line-height:1.7
+  line-height:1.7;
 }
+
 .seccion{
   max-width:900px;
   margin:auto;
-  padding:55px 18px
+  padding:55px 18px;
 }
+
 .titulo{
   text-align:center;
-  color:#ce2b65;
+  color:#c92862;
   font-size:30px;
-  margin-bottom:10px
+  margin-bottom:10px;
 }
+
 .subtitulo{
-  text-align:center;
-  color:#865365;
-  line-height:1.6;
+  max-width:650px;
   margin:0 auto 35px;
-  max-width:600px
+  text-align:center;
+  color:#825565;
+  line-height:1.7;
 }
 
 /* LINEA DE TIEMPO */
 .timeline{
-  position:relative;
   max-width:650px;
   margin:auto;
-  padding-left:42px
+  position:relative;
+  padding-left:45px;
 }
+
 .timeline:before{
   content:"";
   position:absolute;
+  top:0;
+  bottom:0;
   left:15px;
-  top:5px;
-  bottom:5px;
-  width:3px;
+  width:4px;
   border-radius:10px;
-  background:linear-gradient(#ff8aab,#c62560)
+  background:linear-gradient(#ff9bb7,#c92862);
 }
-.momento{
+
+.evento{
   position:relative;
-  margin-bottom:38px;
   background:white;
-  padding:22px;
   border-radius:20px;
-  box-shadow:0 8px 25px rgba(95,25,55,.12)
+  padding:23px;
+  margin-bottom:30px;
+  box-shadow:0 8px 25px rgba(90,20,50,.12);
 }
-.momento:before{
+
+.evento:before{
   content:"❤️";
   position:absolute;
-  left:-42px;
+  left:-45px;
   top:20px;
-  width:32px;
-  height:32px;
+  width:34px;
+  height:34px;
   display:flex;
-  align-items:center;
   justify-content:center;
-  background:#fff;
+  align-items:center;
+  background:white;
   border-radius:50%;
-  box-shadow:0 3px 12px #0002;
-  font-size:17px
+  box-shadow:0 3px 10px #0002;
 }
+
 .fecha{
   display:inline-block;
-  color:#c62560;
-  background:#ffe3ec;
+  padding:6px 11px;
+  margin-bottom:10px;
   border-radius:30px;
-  padding:7px 12px;
+  background:#ffe2eb;
+  color:#b91f55;
   font-size:13px;
   font-weight:bold;
-  margin-bottom:10px
 }
-.momento h3{
-  color:#b51f55;
-  margin-bottom:8px
+
+.evento h3{
+  color:#b91f55;
+  margin-bottom:9px;
 }
-.momento p{line-height:1.7}
+
+.evento p{
+  line-height:1.7;
+}
 
 /* CONTADOR */
 .contador{
-  margin-top:30px;
+  margin-top:35px;
+  padding:27px 15px;
   text-align:center;
-  padding:28px 15px;
   border-radius:22px;
   background:linear-gradient(135deg,#ffe3ec,#fff);
-  box-shadow:0 8px 25px #6b173418
 }
+
 .contador h3{
-  color:#c62560;
-  margin-bottom:8px
+  color:#bd2358;
 }
-#tiempoJuntos{
-  margin-top:12px;
-  color:#a91c50;
+
+#tiempo{
+  color:#a51b4c;
+  font-size:19px;
   font-weight:bold;
-  font-size:20px;
-  line-height:1.8
+  line-height:1.8;
+  margin-top:10px;
 }
 
 /* GALERIA */
 .galeria{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:12px
+  gap:12px;
 }
+
 .foto{
   position:relative;
+  height:270px;
   overflow:hidden;
-  min-height:260px;
   border-radius:20px;
   box-shadow:0 7px 20px #0003;
   cursor:pointer;
-  animation:fotoFlota 5s infinite ease-in-out
 }
-@keyframes fotoFlota{
-  50%{transform:translateY(-5px)}
-}
+
 .foto:first-child{
   grid-column:1/-1;
-  min-height:370px
+  height:370px;
 }
+
 .foto img{
-  position:absolute;
-  inset:0;
   width:100%;
   height:100%;
   object-fit:cover;
-  transition:transform .6s ease
+  display:block;
 }
-.foto:active img{transform:scale(1.05)}
-.fraseFoto{
+
+.texto-foto{
   position:absolute;
-  z-index:2;
   left:0;
   right:0;
   bottom:0;
   padding:55px 15px 17px;
   color:white;
-  font-size:16px;
+  font-size:15px;
   font-weight:bold;
-  line-height:1.4;
-  text-shadow:0 2px 6px #000;
-  background:linear-gradient(transparent,rgba(0,0,0,.82))
+  line-height:1.45;
+  text-shadow:0 2px 6px black;
+  background:linear-gradient(transparent,rgba(0,0,0,.85));
 }
-.verFoto{
+
+.texto-foto small{
   display:block;
   margin-top:7px;
-  font-size:12px;
   font-weight:normal;
-  opacity:.9
 }
 
 /* CARTA */
 .carta{
   background:white;
-  padding:35px 24px;
   border-radius:25px;
-  box-shadow:0 10px 35px rgba(100,25,55,.13);
+  padding:32px 23px;
+  box-shadow:0 10px 30px rgba(100,20,50,.12);
   font-size:17px;
-  line-height:1.9
-}
-.carta p{margin-bottom:20px}
-.carta .inicioCarta{
-  color:#c62560;
-  font-size:24px;
-  font-weight:bold
-}
-.destacado{
-  color:#b31f55;
-  font-weight:bold
-}
-.firma{
-  margin-top:28px;
-  text-align:right;
-  color:#c62560;
-  font-size:21px;
-  font-weight:bold
+  line-height:1.9;
 }
 
-/* VISOR DE FOTOS */
+.carta p{
+  margin-bottom:19px;
+}
+
+.carta strong{
+  color:#b91f55;
+}
+
+.firma{
+  margin-top:25px;
+  text-align:right;
+  color:#c92862;
+  font-size:20px;
+  font-weight:bold;
+}
+
+/* REGALO */
+.final{
+  text-align:center;
+  color:white;
+  padding:70px 20px 85px;
+  background:linear-gradient(160deg,#fa8eae,#c92862,#85113a);
+}
+
+.final h2{
+  font-size:31px;
+  margin-bottom:12px;
+}
+
+.final p{
+  line-height:1.7;
+}
+
+#regalo{
+  font-size:115px;
+  margin-top:30px;
+  cursor:pointer;
+  animation:moverRegalo 1.4s infinite;
+}
+
+@keyframes moverRegalo{
+  0%,100%{
+    transform:translateY(0) rotate(-4deg);
+  }
+  50%{
+    transform:translateY(-12px) rotate(4deg);
+  }
+}
+
+#toca{
+  font-weight:bold;
+  font-size:18px;
+}
+
+#sorpresa{
+  display:none;
+  max-width:650px;
+  margin:30px auto 0;
+}
+
+#sorpresa h3{
+  font-size:31px;
+  margin:15px 0;
+}
+
+#sorpresa p{
+  font-size:18px;
+  margin-bottom:16px;
+}
+
+.te-amo{
+  font-size:38px;
+  font-weight:bold;
+  margin-top:25px;
+}
+
+/* VISOR FOTOS */
 #visor{
   display:none;
   position:fixed;
   inset:0;
-  z-index:200000;
-  background:rgba(20,5,12,.96);
-  padding:55px 15px 25px;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column
-}
-#visor.abierto{display:flex}
-#fotoGrande{
-  display:block;
-  max-width:100%;
-  max-height:65vh;
-  border-radius:15px;
-  object-fit:contain;
-  box-shadow:0 10px 40px #000
-}
-#fraseGrande{
-  color:white;
+  z-index:99999;
+  background:rgba(15,5,10,.96);
+  padding:60px 15px 25px;
   text-align:center;
-  max-width:600px;
-  padding:18px 10px;
-  font-size:17px;
-  line-height:1.5
-}
-.cerrarVisor{
-  position:absolute;
-  top:12px;
-  right:15px;
-  border:0;
-  width:45px;
-  height:45px;
-  border-radius:50%;
-  background:#fff;
-  color:#a51b4d;
-  font-size:25px;
-  font-weight:bold
-}
-.controlesFotos{
-  display:flex;
-  gap:15px;
-  justify-content:center
-}
-.controlFoto{
-  border:0;
-  padding:12px 18px;
-  border-radius:40px;
-  background:#c62560;
-  color:white;
-  font-weight:bold
 }
 
-/* REGALO FINAL */
-.final{
-  text-align:center;
+#visor.activo{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+#fotoGrande{
+  max-width:100%;
+  max-height:65vh;
+  object-fit:contain;
+  border-radius:15px;
+}
+
+#fraseGrande{
   color:white;
-  padding:70px 20px 90px;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at top,#ff9fba,#d6336c 60%,#8b123c)
+  max-width:600px;
+  margin:16px auto;
+  line-height:1.5;
 }
-.final h2{font-size:32px;margin-bottom:10px}
-.final>p{
-  font-size:18px;
-  line-height:1.6
+
+.cerrar{
+  position:absolute;
+  right:15px;
+  top:15px;
+  width:44px;
+  height:44px;
+  border:0;
+  border-radius:50%;
+  background:white;
+  color:#a51b4c;
+  font-size:25px;
 }
-#zonaRegalo{
-  position:relative;
-  min-height:230px;
-  padding-top:30px
+
+.navegacion{
+  display:flex;
+  gap:12px;
 }
-#regaloFinal{
-  display:inline-block;
-  font-size:115px;
-  cursor:pointer;
-  filter:drop-shadow(0 12px 12px #0005);
-  animation:regaloMovimiento 1.4s infinite ease-in-out
-}
-@keyframes regaloMovimiento{
-  0%,100%{transform:translateY(0) rotate(-4deg)}
-  50%{transform:translateY(-13px) rotate(4deg) scale(1.06)}
-}
-#textoRegalo{
-  font-size:18px;
+
+.navegacion button{
+  border:0;
+  border-radius:40px;
+  padding:12px 16px;
+  background:#c92862;
+  color:white;
   font-weight:bold;
-  animation:parpadeo 1.3s infinite
-}
-@keyframes parpadeo{50%{opacity:.4}}
-#regaloFinal.abrir{
-  animation:abrirCaja .8s forwards
-}
-@keyframes abrirCaja{
-  0%{transform:scale(1)}
-  30%{transform:scale(1.25) rotate(-12deg)}
-  60%{transform:scale(1.4) rotate(12deg)}
-  100%{transform:scale(0);opacity:0}
-}
-#sorpresa{
-  display:none;
-  max-width:650px;
-  margin:auto
-}
-#sorpresa.visible{
-  display:block;
-  animation:entradaSorpresa 1.2s ease
-}
-@keyframes entradaSorpresa{
-  from{opacity:0;transform:scale(.6) translateY(40px)}
-  to{opacity:1;transform:none}
-}
-.corazonFinal{
-  font-size:85px;
-  animation:latido 1s infinite
-}
-#sorpresa h3{
-  font-size:32px;
-  margin:15px 0
-}
-#sorpresa p{
-  font-size:18px;
-  line-height:1.8;
-  margin:13px auto
-}
-.teAmo{
-  margin-top:25px;
-  font-size:38px;
-  font-weight:bold
 }
 
 /* MUSICA */
-#controlMusica{
+#musicaBtn{
   display:none;
   position:fixed;
   right:14px;
   bottom:17px;
-  z-index:100000;
-  border:0;
+  z-index:9000;
+  border:none;
   border-radius:50px;
   padding:13px 17px;
-  background:#b91f55;
+  background:#a91d50;
   color:white;
   font-weight:bold;
-  font-size:14px;
-  box-shadow:0 6px 22px #0005
+  box-shadow:0 6px 20px #0004;
 }
 
 /* CORAZONES */
-.heart{
+.corazon-flotante{
   position:fixed;
   bottom:-40px;
-  z-index:9999;
   pointer-events:none;
-  animation:subir linear forwards
+  z-index:8000;
+  animation:subir 6s linear forwards;
 }
+
 @keyframes subir{
-  from{opacity:1;transform:translateY(0) rotate(0)}
-  to{opacity:0;transform:translateY(-115vh) rotate(40deg)}
+  from{
+    transform:translateY(0);
+    opacity:1;
+  }
+  to{
+    transform:translateY(-110vh);
+    opacity:0;
+  }
 }
 
 footer{
   text-align:center;
   padding:22px;
+  background:#771033;
   color:white;
-  background:#831137
 }
 
 @media(min-width:700px){
-  .galeria{grid-template-columns:repeat(3,1fr)}
-  .foto:first-child{grid-column:span 2}
-}
+  .galeria{
+    grid-template-columns:repeat(3,1fr);
+  }
 
-@media(max-width:420px){
-  #portada h1{font-size:40px}
-  .foto{min-height:220px}
-  .foto:first-child{min-height:330px}
-  .fraseFoto{font-size:14px}
+  .foto:first-child{
+    grid-column:span 2;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<audio id="musica" loop preload="auto">
+<audio id="audio" loop>
   <source src="cancion.mp3" type="audio/mpeg">
 </audio>
 
-<button id="controlMusica" onclick="controlarMusica()">
+<button id="musicaBtn" onclick="musicaControl()">
   ⏸ Pausar música
 </button>
 
 <!-- PORTADA -->
-<section id="portada">
-  <div class="portadaContenido">
 
-    <div class="corazonGrande">❤️</div>
+<section id="portada">
+
+  <div class="portada-contenido">
+
+    <div class="corazon-portada">
+      ❤️
+    </div>
 
     <h1>Para Victoria</h1>
 
     <p>
-      Hay historias que empiezan sin avisar y terminan
-      convirtiéndose en una de las partes más bonitas de nuestra vida.
-      Esta es una pequeña parte de la nuestra.
+      Hay personas que llegan a nuestra vida sin avisar
+      y terminan convirtiéndose en una parte de ella
+      que jamás queremos olvidar.
     </p>
 
-    <button class="botonAbrir" onclick="abrirPagina()">
+    <button class="boton" onclick="abrirPagina()">
       💌 Abrir nuestra historia
     </button>
 
   </div>
+
 </section>
 
-<main id="historia">
 
-<!-- INTRO -->
-<section class="cabecera">
+<!-- CONTENIDO -->
+
+<main id="contenido">
+
+<section class="hero">
+
   <h2>Nuestra historia ❤️</h2>
 
   <p>
-    Si algún día olvidamos lo rápido que pasa el tiempo,
-    quiero que podamos volver aquí y recordar cómo comenzó todo.
+    Esto no es solamente una página.
+    Es un pequeño lugar donde quise guardar
+    algunos de los momentos que hicieron que tú
+    te volvieras alguien tan importante para mí.
   </p>
+
 </section>
 
+
 <!-- LINEA DE TIEMPO -->
+
 <section class="seccion">
 
-  <h2 class="titulo">Nuestra línea de tiempo</h2>
+  <h2 class="titulo">
+    Nuestra línea de tiempo
+  </h2>
 
   <p class="subtitulo">
-    Dos fechas, muchos recuerdos y una historia que todavía seguimos escribiendo.
+    Algunas fechas parecen normales hasta que alguien
+    especial hace que nunca volvamos a olvidarlas.
   </p>
 
   <div class="timeline">
 
-    <article class="momento">
-      <span class="fecha">3 DE OCTUBRE DE 2023</span>
+    <div class="evento">
 
-      <h3>El día en que te conocí ✨</h3>
+      <span class="fecha">
+        3 DE OCTUBRE DE 2023
+      </span>
 
-      <p>
-        Ese día todavía no sabía cuánto ibas a significar para mí.
-        Éramos simplemente dos personas coincidiendo en el mismo momento,
-        sin imaginar todo lo que vendría después.
-      </p>
-    </article>
-
-    <article class="momento">
-      <span class="fecha">NUESTRA HISTORIA CRECÍA</span>
-
-      <h3>Poco a poco... 💕</h3>
+      <h3>
+        El día en que te conocí ✨
+      </h3>
 
       <p>
-        Llegaron conversaciones, sonrisas, momentos sencillos
-        y recuerdos que comenzaron a ocupar un lugar especial en mi corazón.
-        Sin darme cuenta, cada día contigo empezaba a importar un poquito más.
+        Ese día todavía no sabía todo lo que significarías
+        para mí. Éramos dos personas coincidiendo en un
+        momento cualquiera, sin imaginar que aquel encuentro
+        terminaría convirtiéndose en el comienzo de tantos
+        recuerdos.
       </p>
-    </article>
 
-    <article class="momento">
-      <span class="fecha">2 DE FEBRERO DE 2025</span>
+    </div>
 
-      <h3>Nos elegimos ❤️</h3>
+
+    <div class="evento">
+
+      <span class="fecha">
+        POCO A POCO
+      </span>
+
+      <h3>
+        Comenzaste a ser especial 💕
+      </h3>
 
       <p>
-        Esta fecha dejó de ser un día cualquiera.
-        Fue el momento en que comenzamos oficialmente nuestra historia
-        como pareja y una nueva etapa de nuestras vidas empezó.
+        Llegaron las conversaciones, las risas y esos pequeños
+        momentos que quizá parecían simples, pero que poco a poco
+        fueron ocupando un lugar muy especial dentro de mí.
       </p>
-    </article>
 
-    <article class="momento">
-      <span class="fecha">HOY</span>
+    </div>
 
-      <h3>Seguimos escribiendo nuestra historia 🌹</h3>
+
+    <div class="evento">
+
+      <span class="fecha">
+        2 DE FEBRERO DE 2025
+      </span>
+
+      <h3>
+        Comenzó oficialmente nuestro “nosotros” ❤️
+      </h3>
 
       <p>
-        No sé cuántas páginas tendrá nuestra historia,
-        pero sí sé que cada recuerdo que hemos creado
-        ya forma parte de algo que guardaré con muchísimo cariño.
+        Desde ese momento esta fecha dejó de ser un día más
+        en el calendario. Se convirtió en una fecha que siempre
+        estará relacionada contigo y con el comienzo de nuestra
+        historia como pareja.
       </p>
-    </article>
+
+    </div>
+
+
+    <div class="evento">
+
+      <span class="fecha">
+        HOY
+      </span>
+
+      <h3>
+        Nuestra historia continúa 🌹
+      </h3>
+
+      <p>
+        Seguimos escribiendo nuestra historia.
+        Todavía quedan fotografías que no hemos tomado,
+        lugares que no hemos conocido, conversaciones que
+        no hemos tenido y recuerdos que todavía no existen.
+      </p>
+
+    </div>
 
   </div>
+
 
   <div class="contador">
 
-    <h3>❤️ Nuestro tiempo juntos</h3>
+    <h3>
+      ❤️ El tiempo desde que comenzó nuestro “nosotros”
+    </h3>
 
-    <p>Desde el 2 de febrero de 2025 han pasado...</p>
-
-    <div id="tiempoJuntos">
-      Calculando nuestra historia...
+    <div id="tiempo">
+      Calculando...
     </div>
 
   </div>
 
 </section>
 
+
 <!-- FOTOS -->
+
 <section class="seccion">
 
-  <h2 class="titulo">Nuestros recuerdos 📸</h2>
+  <h2 class="titulo">
+    Nuestros recuerdos 📸
+  </h2>
 
   <p class="subtitulo">
-    Una fotografía guarda un instante. Para mí, estas guardan pedacitos de nosotros.
-    Toca cualquiera para verla completa.
+    Las fotografías pueden guardar un instante.
+    Pero lo que yo recuerdo al mirarlas es mucho más que una imagen.
+    ❤️ Toca cualquier foto para verla completa.
   </p>
+
 
   <div class="galeria">
 
-    <div class="foto" onclick="abrirFoto(0)">
-      <img src="foto1.jpg" alt="Recuerdo con Victoria">
+    <div class="foto" onclick="verFoto(0)">
 
-      <div class="fraseFoto">
-        “Aquí guardo uno de esos momentos que quisiera poder repetir.”
-        <span class="verFoto">🔍 Toca para ver la foto</span>
+      <img src="foto1.jpg">
+
+      <div class="texto-foto">
+        “Hay momentos que pasan rápido,
+        pero que uno quisiera guardar para siempre.”
+        <small>🔍 Toca para verla</small>
       </div>
+
     </div>
 
-    <div class="foto" onclick="abrirFoto(1)">
-      <img src="foto2.jpg" alt="Recuerdo con Victoria">
 
-      <div class="fraseFoto">
-        “Tu sonrisa convirtió muchos días normales en recuerdos especiales.”
-        <span class="verFoto">🔍 Toca para ver</span>
+    <div class="foto" onclick="verFoto(1)">
+
+      <img src="foto2.jpg">
+
+      <div class="texto-foto">
+        “Tu sonrisa ha convertido días normales
+        en recuerdos que ahora significan mucho para mí.”
+        <small>🔍 Toca para verla</small>
       </div>
+
     </div>
 
-    <div class="foto" onclick="abrirFoto(2)">
-      <img src="foto3.jpg" alt="Recuerdo con Victoria">
 
-      <div class="fraseFoto">
-        “Contigo aprendí que los momentos sencillos también pueden ser inolvidables.”
-        <span class="verFoto">🔍 Toca para ver</span>
+    <div class="foto" onclick="verFoto(2)">
+
+      <img src="foto3.jpg">
+
+      <div class="texto-foto">
+        “Contigo entendí que los momentos más sencillos
+        también pueden terminar siendo los más especiales.”
+        <small>🔍 Toca para verla</small>
       </div>
+
     </div>
 
-    <div class="foto" onclick="abrirFoto(3)">
-      <img src="foto4.jpg" alt="Recuerdo con Victoria">
 
-      <div class="fraseFoto">
-        “Algún día veremos estas fotos y recordaremos cuánto vivimos juntos.”
-        <span class="verFoto">🔍 Toca para ver</span>
+    <div class="foto" onclick="verFoto(3)">
+
+      <img src="foto4.jpg">
+
+      <div class="texto-foto">
+        “Quizá algún día miremos esta fotografía
+        y recordemos todo lo que estábamos viviendo.”
+        <small>🔍 Toca para verla</small>
       </div>
+
     </div>
 
-    <div class="foto" onclick="abrirFoto(4)">
-      <img src="foto5.jpg" alt="Recuerdo con Victoria">
 
-      <div class="fraseFoto">
-        “Y pensar que todavía nos quedan tantos recuerdos por crear...”
-        <span class="verFoto">🔍 Toca para ver</span>
+    <div class="foto" onclick="verFoto(4)">
+
+      <img src="foto5.jpg">
+
+      <div class="texto-foto">
+        “Lo más bonito es saber que todavía
+        nos faltan muchísimas fotografías por tomar.”
+        <small>🔍 Toca para verla</small>
       </div>
+
     </div>
 
   </div>
 
 </section>
 
+
 <!-- CARTA -->
+
 <section class="seccion">
 
-  <h2 class="titulo">Algo que quiero decirte 💌</h2>
+  <h2 class="titulo">
+    Una carta para ti 💌
+  </h2>
 
   <p class="subtitulo">
-    Porque algunas cosas merecen escribirse para no olvidarlas.
+    Porque hay sentimientos que merecen quedarse escritos.
   </p>
+
 
   <div class="carta">
 
-    <p class="inicioCarta">Victoria,</p>
+    <p>
+      <strong>Victoria,</strong>
+    </p>
 
     <p>
-      Quizá nunca encuentre las palabras exactas para explicarte todo
-      lo que significas para mí. Solo sé que desde que llegaste,
-      muchos días comunes comenzaron a convertirse en recuerdos
-      que ahora no quisiera perder jamás.
+      No sé si alguna vez voy a encontrar las palabras exactas
+      para explicarte todo lo que significas para mí.
+      Hay sentimientos que simplemente son demasiado grandes
+      para caber dentro de unas cuantas frases.
     </p>
 
     <p>
       A veces pienso en aquel
-      <span class="destacado">3 de octubre de 2023</span>.
-      Éramos dos personas que todavía no sabían todo lo que vendría después.
-      Y hoy miro nuestras fotografías y entiendo que, sin darme cuenta,
-      estaba comenzando una de las historias más importantes de mi vida.
+      <strong>3 de octubre de 2023</strong>.
+      Ese día todavía no sabía que estaba conociendo
+      a alguien que después ocuparía un lugar tan importante
+      dentro de mi vida.
     </p>
 
     <p>
-      Después llegaron nuestras conversaciones, nuestras risas,
-      nuestros momentos buenos y también todo aquello que nos ha permitido
-      conocernos un poco más.
+      Lo bonito es que nuestra historia no apareció
+      completamente escrita. Fue creciendo poco a poco:
+      conversación tras conversación, sonrisa tras sonrisa
+      y recuerdo tras recuerdo.
     </p>
 
     <p>
-      Y entonces llegó el
-      <span class="destacado">2 de febrero de 2025</span>.
-      Desde ese momento esa fecha dejó de ser simplemente otro día
-      en el calendario. Se convirtió en el comienzo oficial de nosotros.
+      Hasta que llegó el
+      <strong>2 de febrero de 2025</strong>.
+      Desde entonces esa fecha significa algo diferente para mí,
+      porque fue cuando oficialmente comenzó nuestro “nosotros”.
     </p>
 
     <p>
-      No quiero prometerte una historia perfecta.
-      Quiero algo mucho más verdadero:
-      seguir creando momentos contigo, aprender juntos,
-      cuidarnos y algún día mirar hacia atrás para decir:
-      <span class="destacado">“Mira todo lo que vivimos.”</span>
+      No quiero decirte que nuestra historia será perfecta.
+      Ninguna historia verdadera lo es.
     </p>
 
     <p>
-      Gracias por cada sonrisa, por cada conversación,
-      por cada fotografía y por cada pequeño recuerdo
-      que ahora forma parte de mi vida.
+      Lo que sí deseo es que podamos seguir creando momentos
+      que algún día nos hagan mirar hacia atrás y pensar:
+      <strong>“Qué bonito fue haber vivido todo esto juntos.”</strong>
     </p>
 
     <p>
-      Y si algún día vuelves a esta página,
-      quiero que recuerdes algo muy sencillo:
-      no hice todo esto porque necesitara una fecha especial.
+      Gracias por cada conversación,
+      por cada sonrisa, por cada fotografía,
+      por cada momento bonito y también por todos esos
+      pequeños detalles que quizá tú no recuerdes,
+      pero que para mí significaron mucho.
     </p>
 
     <p>
-      Lo hice porque
-      <span class="destacado">tú eres especial para mí.</span> ❤️
+      Algún día estas fotografías serán antiguas.
+      Nosotros seremos diferentes.
+      Habremos vivido muchas cosas más.
     </p>
+
+    <p>
+      Pero quiero que esta página quede aquí para recordarnos
+      quiénes éramos mientras estábamos construyendo
+      estos recuerdos.
+    </p>
+
+    <p>
+      Y si algún día vuelves a abrirla,
+      quiero que recuerdes una sola cosa:
+    </p>
+
+    <p>
+      <strong>
+        La hice porque tú eres una persona
+        muy especial para mí. ❤️
+      </strong>
+    </p>
+
 
     <div class="firma">
-      Con mucho amor,<br>
-      para Victoria ❤️
+      Para ti,<br>
+      Victoria ❤️
     </div>
 
   </div>
 
 </section>
 
+
 <!-- REGALO FINAL -->
+
 <section class="final">
 
-  <h2>Pero nuestra historia todavía no termina... ❤️</h2>
+  <h2>
+    Espera... todavía falta algo ❤️
+  </h2>
 
   <p>
-    Antes de irte, guardé una última cosa para ti.
+    Llegaste hasta el final de nuestra pequeña historia,
+    pero guardé unas últimas palabras para ti.
   </p>
+
 
   <div id="zonaRegalo">
 
-    <div id="regaloFinal" onclick="abrirSorpresa()">
+    <div id="regalo" onclick="abrirRegalo()">
       🎁
     </div>
 
-    <div id="textoRegalo">
+    <div id="toca">
       Toca el regalo ❤️
     </div>
 
   </div>
 
+
   <div id="sorpresa">
 
-    <div class="corazonFinal">❤️</div>
+    <div class="corazon-portada">
+      ❤️
+    </div>
 
-    <h3>Para ti, Victoria</h3>
+    <h3>
+      Para ti, Victoria
+    </h3>
 
     <p>
-      De todas las casualidades que pudieron ocurrir en mi vida,
-      conocerte a ti siempre será una de mis favoritas.
+      De todas las casualidades que pudieron ocurrir
+      en mi vida, conocerte a ti siempre será
+      una de mis favoritas.
     </p>
 
     <p>
-      Si pudiera regresar a aquel primer momento,
-      volvería a elegir conocerte.
+      Si pudiera regresar al día en que nos conocimos,
+      volvería a vivirlo sabiendo todo lo que vendría después.
+    </p>
+
+    <p>
       Volvería a elegir nuestras conversaciones,
-      nuestras risas y todos esos pequeños instantes
-      que terminaron convirtiéndose en recuerdos importantes para mí.
+      nuestras risas, nuestros momentos y todos esos
+      recuerdos que hoy forman parte de nosotros.
     </p>
 
     <p>
-      No sé exactamente qué nos espera en todas las páginas
-      que todavía faltan por escribir.
-      Pero deseo que cuando miremos hacia atrás,
-      encontremos una historia llena de momentos que valieron la pena.
+      No sé exactamente cuántas páginas tendrá nuestra historia.
+      Solo espero que todavía nos queden muchas por escribir.
     </p>
 
     <p>
-      Gracias por existir en una parte tan importante de mi historia.
+      Y que cuando algún día volvamos a mirar hacia atrás,
+      podamos sonreír al recordar todo lo que vivimos.
     </p>
 
-    <div class="teAmo">
+    <div class="te-amo">
       Te amo, Victoria ❤️
     </div>
 
@@ -760,28 +891,33 @@ footer{
 
 </section>
 
+
 <footer>
-  Nuestra historia • 03.10.2023 → ❤️
+  03.10.2023 ✨ — 02.02.2025 ❤️ — Nuestra historia continúa...
 </footer>
 
 </main>
 
-<!-- VISOR DE FOTOS -->
+
+<!-- VISOR -->
+
 <div id="visor">
 
-  <button class="cerrarVisor" onclick="cerrarFoto()">×</button>
+  <button class="cerrar" onclick="cerrarFoto()">
+    ×
+  </button>
 
-  <img id="fotoGrande" src="foto1.jpg" alt="Nuestro recuerdo">
+  <img id="fotoGrande" src="foto1.jpg">
 
   <div id="fraseGrande"></div>
 
-  <div class="controlesFotos">
+  <div class="navegacion">
 
-    <button class="controlFoto" onclick="fotoAnterior()">
+    <button onclick="anterior()">
       ← Anterior
     </button>
 
-    <button class="controlFoto" onclick="fotoSiguiente()">
+    <button onclick="siguiente()">
       Siguiente →
     </button>
 
@@ -789,13 +925,12 @@ footer{
 
 </div>
 
+
 <script>
 
-/* =========================
-   DATOS DE LAS FOTOS
-========================= */
+/* FOTOS */
 
-var fotos=[
+var fotos = [
   "foto1.jpg",
   "foto2.jpg",
   "foto3.jpg",
@@ -803,218 +938,298 @@ var fotos=[
   "foto5.jpg"
 ];
 
-var frases=[
-  "Aquí guardo uno de esos momentos que quisiera poder repetir.",
-  "Tu sonrisa convirtió muchos días normales en recuerdos especiales.",
-  "Contigo aprendí que los momentos sencillos también pueden ser inolvidables.",
-  "Algún día veremos estas fotos y recordaremos cuánto vivimos juntos.",
-  "Y pensar que todavía nos quedan tantos recuerdos por crear..."
+var frases = [
+  "Hay momentos que pasan rápido, pero que uno quisiera guardar para siempre. ❤️",
+  "Tu sonrisa ha convertido días normales en recuerdos que ahora significan mucho para mí. ❤️",
+  "Contigo entendí que los momentos más sencillos también pueden terminar siendo los más especiales. ❤️",
+  "Quizá algún día miremos esta fotografía y recordemos todo lo que estábamos viviendo. ❤️",
+  "Lo más bonito es saber que todavía nos faltan muchísimas fotografías por tomar. ❤️"
 ];
 
-var fotoActual=0;
+var actual = 0;
 
 
-/* =========================
-   ABRIR PÁGINA
-========================= */
+/* ABRIR PAGINA */
 
 function abrirPagina(){
 
-  var portada=document.getElementById("portada");
-  var historia=document.getElementById("historia");
-  var musica=document.getElementById("musica");
-  var control=document.getElementById("controlMusica");
+  document.getElementById("portada").style.display = "none";
 
-  portada.style.display="none";
-  historia.style.display="block";
-  control.style.display="block";
+  document.getElementById("contenido").style.display = "block";
+
+  document.getElementById("musicaBtn").style.display = "block";
 
   window.scrollTo(0,0);
 
-  musica.volume=.65;
+  var audio = document.getElementById("audio");
 
-  var intento=musica.play();
+  audio.volume = 0.6;
 
-  if(intento){
+  audio.play().then(function(){
 
-    intento.then(function(){
+    document.getElementById("musicaBtn").innerHTML =
+    "⏸ Pausar música";
 
-      control.innerHTML="⏸ Pausar música";
+  }).catch(function(){
 
-    }).catch(function(){
+    document.getElementById("musicaBtn").innerHTML =
+    "▶ Reproducir música";
 
-      control.innerHTML="▶ Reproducir música";
+  });
 
-    });
-
-  }
-
-  lluviaCorazones(25);
+  corazones(20);
 }
 
 
-/* =========================
-   CONTROL DE MÚSICA
-========================= */
+/* MUSICA */
 
-function controlarMusica(){
+function musicaControl(){
 
-  var musica=document.getElementById("musica");
-  var control=document.getElementById("controlMusica");
+  var audio =
+  document.getElementById("audio");
 
-  if(musica.paused){
+  var boton =
+  document.getElementById("musicaBtn");
 
-    var intento=musica.play();
+  if(audio.paused){
 
-    if(intento){
+    audio.play();
 
-      intento.then(function(){
-
-        control.innerHTML="⏸ Pausar música";
-
-      }).catch(function(){
-
-        control.innerHTML="▶ Reproducir música";
-
-      });
-
-    }
+    boton.innerHTML =
+    "⏸ Pausar música";
 
   }else{
 
-    musica.pause();
-    control.innerHTML="▶ Reproducir música";
+    audio.pause();
+
+    boton.innerHTML =
+    "▶ Reproducir música";
 
   }
 
 }
 
 
-/* =========================
-   CONTADOR
-========================= */
+/* CONTADOR */
 
-function actualizarContador(){
+function contador(){
 
-  var inicio=new Date(2025,1,2,0,0,0);
-  var ahora=new Date();
+  var inicio =
+  new Date(2025,1,2,0,0,0);
 
-  var diferencia=ahora.getTime()-inicio.getTime();
+  var ahora =
+  new Date();
 
-  if(diferencia<0){
+  var diferencia =
+  ahora.getTime() -
+  inicio.getTime();
+
+  if(diferencia < 0){
     return;
   }
 
-  var dias=Math.floor(diferencia/86400000);
-
-  var horas=Math.floor(
-    (diferencia/3600000)%24
+  var dias =
+  Math.floor(
+    diferencia / 86400000
   );
 
-  var minutos=Math.floor(
-    (diferencia/60000)%60
+  var horas =
+  Math.floor(
+    (diferencia / 3600000) % 24
   );
 
-  var segundos=Math.floor(
-    (diferencia/1000)%60
+  var minutos =
+  Math.floor(
+    (diferencia / 60000) % 60
   );
 
-  var contador=document.getElementById("tiempoJuntos");
+  var segundos =
+  Math.floor(
+    (diferencia / 1000) % 60
+  );
 
-  if(contador){
-
-    contador.innerHTML=
-      dias+" días ❤️<br>"+
-      horas+" horas · "+
-      minutos+" minutos · "+
-      segundos+" segundos";
-
-  }
+  document.getElementById("tiempo").innerHTML =
+  dias + " días ❤️<br>" +
+  horas + " horas · " +
+  minutos + " minutos · " +
+  segundos + " segundos";
 
 }
 
-actualizarContador();
+contador();
 
-setInterval(
-  actualizarContador,
-  1000
-);
+setInterval(contador,1000);
 
 
-/* =========================
-   VISOR DE FOTOS
-========================= */
+/* VISOR DE FOTOS */
 
-function abrirFoto(numero){
+function verFoto(numero){
 
-  fotoActual=numero;
+  actual = numero;
 
-  actualizarVisor();
+  actualizarFoto();
 
-  document.getElementById("visor").className="abierto";
+  document.getElementById("visor").className =
+  "activo";
 
 }
 
 
-function actualizarVisor(){
+function actualizarFoto(){
 
-  document.getElementById("fotoGrande").src=
-    fotos[fotoActual];
+  document.getElementById("fotoGrande").src =
+  fotos[actual];
 
-  document.getElementById("fraseGrande").innerHTML=
-    "❤️ "+frases[fotoActual];
+  document.getElementById("fraseGrande").innerHTML =
+  frases[actual];
 
 }
 
 
 function cerrarFoto(){
 
-  document.getElementById("visor").className="";
+  document.getElementById("visor").className =
+  "";
 
 }
 
 
-function fotoSiguiente(){
+function siguiente(){
 
-  fotoActual++;
+  actual++;
 
-  if(fotoActual>=fotos.length){
-    fotoActual=0;
+  if(actual >= fotos.length){
+
+    actual = 0;
+
   }
 
-  actualizarVisor();
+  actualizarFoto();
 
 }
 
 
-function fotoAnterior(){
+function anterior(){
 
-  fotoActual--;
+  actual--;
 
-  if(fotoActual<0){
-    fotoActual=fotos.length-1;
+  if(actual < 0){
+
+    actual =
+    fotos.length - 1;
+
   }
 
-  actualizarVisor();
+  actualizarFoto();
 
 }
 
 
-/* =========================
-   CORAZONES
-========================= */
+/* CORAZONES */
 
 function crearCorazon(){
 
-  var corazon=document.createElement("div");
+  var corazon =
+  document.createElement("div");
 
-  var simbolos=[
+  corazon.className =
+  "corazon-flotante";
+
+  var tipos = [
     "❤️",
     "💕",
     "💖",
     "💗"
   ];
 
-  corazon.className="heart";
+  corazon.innerHTML =
+  tipos[
+    Math.floor(
+      Math.random() * tipos.length
+    )
+  ];
 
-  corazon.innerHTML
+  corazon.style.left =
+  Math.floor(
+    Math.random() * 95
+  ) + "%";
+
+  corazon.style.fontSize =
+  (
+    16 +
+    Math.floor(
+      Math.random() * 20
+    )
+  ) + "px";
+
+  document.body.appendChild(corazon);
+
+  setTimeout(function(){
+
+    if(corazon.parentNode){
+
+      corazon.parentNode.removeChild(corazon);
+
+    }
+
+  },6500);
+
+}
+
+
+function corazones(cantidad){
+
+  var numero = 0;
+
+  var lluvia =
+  setInterval(function(){
+
+    crearCorazon();
+
+    numero++;
+
+    if(numero >= cantidad){
+
+      clearInterval(lluvia);
+
+    }
+
+  },180);
+
+}
+
+
+/* REGALO */
+
+var abierto = false;
+
+function abrirRegalo(){
+
+  if(abierto){
+    return;
+  }
+
+  abierto = true;
+
+  document.getElementById("regalo").style.display =
+  "none";
+
+  document.getElementById("toca").style.display =
+  "none";
+
+  document.getElementById("sorpresa").style.display =
+  "block";
+
+  corazones(40);
+
+  document.getElementById("sorpresa").scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+
+}
+
+</script>
+
+</body>
+      </html>
