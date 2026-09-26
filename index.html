@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Victoria ❤️</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:#fff8fa;
+  color:#402b31;
+  overflow-x:hidden;
+}
+
+/* PORTADA */
+#portada{
+  min-height:100vh;
+  background:
+    linear-gradient(rgba(30,5,15,.30),rgba(30,5,15,.72)),
+    url("img/foto1.jpg") center/cover;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:30px;
+  color:white;
+}
+
+.portadaContenido{
+  max-width:550px;
+  animation:entrada 1.5s ease;
+}
+
+.corazonGrande{
+  font-size:60px;
+  animation:latido 1.3s infinite;
+}
+
+#portada h1{
+  font-size:46px;
+  margin:15px 0;
+  text-shadow:0 3px 15px #0008;
+}
+
+#portada p{
+  font-size:18px;
+  line-height:1.6;
+}
+
+button{cursor:pointer}
+
+#botonAbrir{
+  margin-top:30px;
+  border:0;
+  padding:17px 30px;
+  border-radius:50px;
+  background:linear-gradient(135deg,#ff6c92,#e72e67);
+  color:white;
+  font-size:18px;
+  font-weight:bold;
+  box-shadow:0 10px 30px #e62d6466;
+}
+
+/* CONTENIDO */
+#contenido{display:none}
+
+.seccion{
+  padding:70px 20px;
+  text-align:center;
+}
+
+.titulo{
+  color:#d93668;
+  font-size:32px;
+  margin-bottom:18px;
+}
+
+.texto{
+  max-width:650px;
+  margin:auto;
+  font-size:17px;
+  line-height:1.8;
+}
+
+/* FECHAS */
+.fechas{
+  max-width:750px;
+  margin:35px auto 0;
+  display:grid;
+  gap:18px;
+}
+
+.tarjeta{
+  background:white;
+  padding:30px 20px;
+  border-radius:25px;
+  box-shadow:0 10px 35px #50142817;
+}
+
+.icono{font-size:40px}
+
+.tarjeta h3{
+  color:#d93668;
+  margin:12px 0;
+}
+
+/* CONTADORES */
+.tiempo{
+  background:linear-gradient(180deg,#fff0f5,#fff9fb);
+}
+
+.contadores{
+  max-width:750px;
+  margin:30px auto 0;
+  display:grid;
+  gap:18px;
+}
+
+.contador{
+  background:white;
+  padding:30px 15px;
+  border-radius:25px;
+  box-shadow:0 10px 35px #50142814;
+}
+
+.contador h3{
+  color:#d93668;
+  margin:10px 0 15px;
+}
+
+.numero{
+  color:#e93469;
+  font-size:23px;
+  font-weight:bold;
+  line-height:1.5;
+}
+
+/* LÍNEA DEL TIEMPO */
+.lineaTiempo{
+  position:relative;
+  max-width:600px;
+  margin:45px auto 0;
+  padding-left:35px;
+  text-align:left;
+}
+
+.lineaTiempo:before{
+  content:"";
+  position:absolute;
+  left:11px;
+  top:5px;
+  bottom:5px;
+  width:3px;
+  background:linear-gradient(#ff799c,#d92f65);
+  border-radius:10px;
+}
+
+.momento{
+  position:relative;
+  margin-bottom:38px;
+  background:white;
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 8px 25px #50142812;
+}
+
+.momento:before{
+  content:"❤️";
+  position:absolute;
+  left:-42px;
+  top:15px;
+  font-size:22px;
+  background:#fff8fa;
+}
+
+.momento small{
+  color:#e93469;
+  font-weight:bold;
+  letter-spacing:1px;
+}
+
+.momento h3{
+  margin:8px 0;
+  color:#63283b;
+}
+
+/* GALERÍA */
+.galeria{
+  max-width:800px;
+  margin:32px auto 0;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+}
+
+.foto{
+  position:relative;
+  overflow:hidden;
+  border-radius:20px;
+  box-shadow:0 8px 22px #0002;
+  cursor:pointer;
+}
+
+.foto img{
+  width:100%;
+  height:235px;
+  object-fit:cover;
+  display:block;
+  transition:.4s;
+}
+
+.foto:active img{
+  transform:scale(1.04);
+}
+
+.foto:first-child{
+  grid-column:span 2;
+}
+
+.foto:first-child img{
+  height:350px;
+}
+
+.foto span{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:30px 10px 12px;
+  color:white;
+  font-size:14px;
+  background:linear-gradient(transparent,#000a);
+}
+
+/* VISOR */
+#visor{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#000e;
+  z-index:20000;
+  align-items:center;
+  justify-content:center;
+}
+
+#visor img{
+  max-width:94%;
+  max-height:82vh;
+  border-radius:15px;
+}
+
+.cerrar{
+  position:absolute;
+  right:20px;
+  top:20px;
+  background:#fff;
+  color:#222;
+  border:0;
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  font-size:25px;
+}
+
+.anterior,.siguiente{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  border:0;
+  width:45px;
+  height:55px;
+  border-radius:15px;
+  background:#ffffffcc;
+  font-size:35px;
+}
+
+.anterior{left:10px}
+.siguiente{right:10px}
+
+/* CARTA */
+.zonaCarta{padding:30px 20px 75px}
+
+.carta{
+  max-width:700px;
+  margin:auto;
+  background:white;
+  padding:40px 28px;
+  border-radius:28px;
+  box-shadow:0 12px 40px #50142818;
+  font-size:17px;
+  line-height:1.9;
+}
+
+.carta h2{
+  text-align:center;
+  color:#d93668;
+  margin-bottom:25px;
+}
+
+/* SORPRESA */
+.sorpresa{
+  padding:80px 25px;
+  text-align:center;
+  background:#fff0f5;
+}
+
+#botonSorpresa{
+  border:0;
+  padding:17px 28px;
+  border-radius:50px;
+  background:#e93469;
+  color:white;
+  font-size:17px;
+  font-weight:bold;
+}
+
+#secreto{
+  display:none;
+  max-width:600px;
+  margin:35px auto 0;
+  animation:entrada 1s ease;
+}
+
+#secreto h2{
+  color:#d93668;
+  margin:15px 0;
+}
+
+/* FINAL */
+.final{
+  min-height:90vh;
+  background:linear-gradient(145deg,#ff6c91,#d92f65);
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:35px;
+}
+
+.final h2{
+  font-size:46px;
+  margin:12px 0;
+}
+
+.final p{
+  font-size:19px;
+  line-height:1.7;
+}
+
+/* MÚSICA */
+#controlMusica{
+  display:none;
+  position:fixed;
+  right:18px;
+  bottom:20px;
+  width:58px;
+  height:58px;
+  border:0;
+  border-radius:50%;
+  background:linear-gradient(135deg,#ff668e,#d92f65);
+  color:white;
+  font-size:24px;
+  z-index:9999;
+  box-shadow:0 8px 25px #0004;
+}
+
+/* CORAZONES */
+.corazonFlotante{
+  position:fixed;
+  bottom:-50px;
+  z-index:999;
+  pointer-events:none;
+  animation:subir 6s linear forwards;
+}
+
+@keyframes latido{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.16)}
+}
+
+@keyframes entrada{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes subir{
+  from{transform:translateY(0);opacity:.8}
+  to{transform:translateY(-115vh) rotate(25deg);opacity:0}
+}
+
+@media(min-width:700px){
+  .fechas,.contadores{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+
+<body>
+
+<audio id="musica" loop preload="auto">
+  <source src="musica/cancion.mp3" type="audio/mpeg">
+</audio>
+
+<button id="controlMusica">🎵</button>
+
+<section id="portada">
+  <div class="portadaContenido">
+    <div class="corazonGrande">❤️</div>
+    <p>Hay personas que llegan a nuestra vida sin avisar...</p>
+    <h1>Para Victoria</h1>
+    <p>y terminan convirtiéndose en una de las partes más bonitas de nuestra historia.</p>
+    <button id="botonAbrir">💌 Abrir mi regalo</button>
+  </div>
+</section>
+
+<div id="contenido">
+
+<section class="seccion">
+  <h2 class="titulo">Nuestra historia ❤️</h2>
+
+  <p class="texto">
+    Quizás aquel día ninguno de los dos imaginaba todo lo que vendría después.
+    <br><br>
+    Pero el <b>3 de octubre de 2023</b> nuestros caminos se cruzaron
+    y comenzó una historia que todavía seguimos escribiendo.
+  </p>
+
+  <div class="fechas">
+    <div class="tarjeta">
+      <div class="icono">✨</div>
+      <h3>3 de octubre de 2023</h3>
+      <p>El día que nos conocimos.</p>
+    </div>
+
+    <div class="tarjeta">
+      <div class="icono">❤️</div>
+      <h3>2 de febrero de 2025</h3>
+      <p>El día que comenzó oficialmente nuestro nosotros.</p>
+    </div>
+  </div>
+</section>
+
+<section class="seccion tiempo">
+  <h2 class="titulo">Nuestro tiempo juntos 💕</h2>
+
+  <p class="texto">
+    El calendario sigue avanzando, pero hay días que siempre serán nuestros.
+  </p>
+
+  <div class="contadores">
+    <div class="contador">
+      <div class="icono">✨</div>
+      <h3>Desde que nos conocimos</h3>
+      <div id="tiempoConocidos" class="numero">Calculando...</div>
+    </div>
+
+    <div class="contador">
+      <div class="icono">❤️</div>
+      <h3>Desde que somos novios</h3>
+      <div id="tiempoNovios" class="numero">Calculando...</div>
+    </div>
+  </div>
+</section>
+
+<section class="seccion">
+  <h2 class="titulo">Nuestra línea del tiempo</h2>
+
+  <div class="lineaTiempo">
+
+    <div class="momento">
+      <small>03 OCT 2023</small>
+      <h3>Nos conocimos ✨</h3>
+      <p>Dos caminos se encontraron sin saber todo lo que vendría después.</p>
+    </div>
+
+    <div class="momento">
+      <small>02 FEB 2025</small>
+      <h3>Comenzó nuestro nosotros ❤️</h3>
+      <p>Dejamos de ser solamente dos historias y comenzamos una juntos.</p>
+    </div>
+
+    <div class="momento">
+      <small>HOY</small>
+      <h3>Seguimos aquí 💕</h3>
+      <p>Sumando recuerdos, aprendiendo y escribiendo nuevas páginas.</p>
+    </div>
+
+    <div class="momento">
+      <small>∞</small>
+      <h3>Lo que todavía falta</h3>
+      <p>Hay muchos recuerdos que todavía no hemos fotografiado.</p>
+    </div>
+
+  </div>
+</section>
+
+<section class="seccion">
+
+  <h2 class="titulo">Nuestros recuerdos 📸</h2>
+
+  <p class="texto">
+    Para cualquiera pueden ser fotografías.
+    Para mí son pequeños pedazos de nuestra historia.
+    <br><br>
+    <b>Toca una foto ❤️</b>
+  </p>
+
+  <div class="galeria">
+
+    <div class="foto" onclick="abrirFoto(0)">
+      <img src="img/foto1.jpg">
+      <span>Un pedacito de nosotros ❤️</span>
+    </div>
+
+    <div class="foto" onclick="abrirFoto(1)">
+      <img src="img/foto2.jpg">
+      <span>Un recuerdo juntos</span>
+    </div>
+
+    <div class="foto" onclick="abrirFoto(2)">
+      <img src="img/foto3.jpg">
+      <span>Momentos que guardo</span>
+    </div>
+
+    <div class="foto" onclick="abrirFoto(3)">
+      <img src="img/foto4.jpg">
+      <span>Tú y yo ❤️</span>
+    </div>
+
+    <div class="foto" onclick="abrirFoto(4)">
+      <img src="img/foto5.jpg">
+      <span>Nuestra historia</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="zonaCarta">
+  <div class="carta">
+
+    <h2>Para ti, Victoria 💌</h2>
+
+    <p>
+      Desde aquel <b>3 de octubre de 2023</b> han pasado muchísimas cosas.
+      Si ese día me hubieran contado todo lo que viviríamos después,
+      probablemente no lo habría imaginado.
+    </p>
+
+    <br>
+
+    <p>
+      Entre conversaciones, risas, momentos, días buenos y también los no tan buenos,
+      terminamos construyendo algo que significa muchísimo para mí.
+    </p>
+
+    <br>
+
+    <p>
+      Y entonces llegó el <b>2 de febrero de 2025</b>.
+      Ese día nuestra historia cambió de nombre y comenzó oficialmente nuestro
+      <b>“nosotros”</b>.
+    </p>
+
+    <br>
+
+    <p>
+      No hice esta página porque exista una ocasión especial.
+      La hice porque tú eres especial para mí y quería regalarte algo
+      que no simplemente pudiera comprar.
+    </p>
+
+    <br>
+
+    <p>
+      Cada fotografía, cada fecha, cada palabra y hasta cada línea
+      de esta página está aquí porque pensé en nosotros mientras la hacía.
+    </p>
+
+    <br>
+
+    <p>
+      Gracias por todos nuestros recuerdos, Victoria.
+      <br><br>
+      <b>Y gracias por seguir escribiendo esta historia conmigo. ❤️</b>
+    </p>
+
+  </div>
+</section>
+
+<section class="sorpresa">
+
+  <p style="margin-bottom:22px">
+    Antes de terminar...<br><br>
+    todavía tengo algo que decirte.
+  </p>
+
+  <button id="botonSorpresa">❤️ Toca aquí</button>
+
+  <div id="secreto">
+    <div class="corazonGrande">❤️</div>
+
+    <h2>Te elegiría otra vez.</h2>
+
+    <p class="texto">
+      Si pudiera regresar al comienzo sin saber todo lo que vendría después,
+      volvería a querer encontrarte aquel 3 de octubre.
+      <br><br>
+      Porque entre tantas casualidades de la vida,
+      una de mis favoritas fue coincidir contigo. ❤️
+    </p>
+  </div>
+
+</section>
+
+<section class="final">
+  <div>
+    <div class="corazonGrande">❤️</div>
+
+    <h2>Victoria</h2>
+
+    <p>
+      De todos los lugares donde podría estar,<br>
+      me alegra que nuestros caminos se hayan encontrado.
+    </p>
+
+    <br><br>
+
+    <p>
+      <b>03 · 10 · 2023</b><br>
+      ✨<br>
+      Nos conocimos
+      <br><br>
+      ❤️
+      <br><br>
+      <b>02 · 02 · 2025</b><br>
+      Comenzó nuestro nosotros
+      <br><br>
+      ❤️<br>
+      ∞
+    </p>
+  </div>
+</section>
+
+</div>
+
+<!-- VISOR DE FOTOS -->
+
+<div id="visor">
+
+  <button class="cerrar" onclick="cerrarFoto()">×</button>
+
+  <button class="anterior" onclick="fotoAnterior()">‹</button>
+
+  <img id="fotoGrande">
+
+  <button class="siguiente" onclick="fotoSiguiente()">›</button>
+
+</div>
+
+<script>
+
+var botonAbrir = document.getElementById("botonAbrir");
+var musica = document.getElementById("musica");
+var controlMusica = document.getElementById("controlMusica");
+
+botonAbrir.onclick = function(){
+
+  document.getElementById("portada").style.display="none";
+  document.getElementById("contenido").style.display="block";
+
+  window.scrollTo(0,0);
+
+  controlMusica.style.display="block";
+
+  musica.play().then(function(){
+    controlMusica.innerHTML="🎵";
+  }).catch(function(){
+    controlMusica.innerHTML="▶️";
+  });
+
+  lanzarCorazones(15);
+};
+
+
+/* MÚSICA */
+
+controlMusica.onclick=function(){
+
+  if(musica.paused){
+
+    musica.play();
+    controlMusica.innerHTML="🎵";
+
+  }else{
+
+    musica.pause();
+    controlMusica.innerHTML="▶️";
+
+  }
+
+};
+
+
+/* SORPRESA */
+
+document.getElementById("botonSorpresa").onclick=function(){
+
+  document.getElementById("secreto").style.display="block";
+
+  this.style.display="none";
+
+  lanzarCorazones(25);
+};
+
+
+/* CONTADOR */
+
+function calcularTiempo(fechaTexto){
+
+  var inicio=new Date(fechaTexto);
+  var ahora=new Date();
+
+  var anos=ahora.getFullYear()-inicio.getFullYear();
+  var meses=ahora.getMonth()-inicio.getMonth();
+  var dias=ahora.getDate()-inicio.getDate();
+
+  if(dias<0){
+
+    meses--;
+
+    var ultimoMes=
+      new Date(
+        ahora.getFullYear(),
+        ahora.getMonth(),
+        0
+      ).getDate();
+
+    dias+=ultimoMes;
+  }
+
+  if(meses<0){
+    anos--;
+    meses+=12;
+  }
+
+  return anos+" años · "+meses+" meses · "+dias+" días";
+}
+
+document.getElementById("tiempoConocidos").innerHTML=
+calcularTiempo("2023-10-03T12:00:00");
+
+document.getElementById("tiempoNovios").innerHTML=
+calcularTiempo("2025-02-02T12:00:00");
+
+
+/* GALERÍA */
+
+var fotos=[
+  "img/foto1.jpg",
+  "img/foto2.jpg",
+  "img/foto3.jpg",
+  "img/foto4.jpg",
+  "img/foto5.jpg"
+];
+
+var fotoActual=0;
+
+function abrirFoto(numero){
+
+  fotoActual=numero;
+
+  document.getElementById("fotoGrande").src=fotos[fotoActual];
+
+  document.getElementById("visor").style.display="flex";
+}
+
+function cerrarFoto(){
+
+  document.getElementById("visor").style.display="none";
+}
+
+function fotoSiguiente(){
+
+  fotoActual++;
+
+  if(fotoActual>=fotos.length){
+    fotoActual=0;
+  }
+
+  document.getElementById("fotoGrande").src=fotos[fotoActual];
+}
+
+function fotoAnterior(){
+
+  fotoActual--;
+
+  if(fotoActual<0){
+    fotoActual=fotos.length-1;
+  }
+
+  document.getElementById("fotoGrande").src=fotos[fotoActual];
+}
+
+
+/* CORAZONES */
+
+function crearCorazon(){
+
+  var corazon=document.createElement("div");
+
+  corazon.className="corazonFlotante";
+
+  var lista=["❤️","💕","💗","💖"];
+
+  corazon.innerHTML=
+    lista[Math.floor(Math.random()*lista.length)];
+
+  corazon.style.left=
+    Math.random()*95+"vw";
+
+  corazon.style.fontSize=
+    (18+Math.random()*20)+"px";
+
+  corazon.style.animationDuration=
+    (4+Math.random()*3)+"s";
+
+  document.body.appendChild(corazon);
+
+  setTimeout(function(){
+
+    if(corazon.parentNode){
+      corazon.parentNode.removeChild(corazon);
+    }
+
+  },7500);
+}
+
+function lanzarCorazones(cantidad){
+
+  var i=0;
+
+  var intervalo=setInterval(function(){
+
+    crearCorazon();
+
+    i++;
+
+    if(i>=cantidad){
+      clearInterval(intervalo);
+    }
+
+  },140);
+}
+
+</script>
+
+</body>
+  </html>
