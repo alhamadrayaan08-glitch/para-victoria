@@ -3,284 +3,393 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Para Victoria ❤️</title>
 
 <style>
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#fff5f8;
+    color:#4a2734;
+    overflow-x:hidden;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+/* ================= PORTADA ================= */
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #fff5f8;
-    color: #4a2734;
-    overflow-x: hidden;
-}
-
-/* PORTADA */
-
-#portada {
-    min-height: 100vh;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 30px 20px;
-
+#portada{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:30px 20px;
     background:
-        linear-gradient(
-            rgba(55, 10, 28, 0.35),
-            rgba(55, 10, 28, 0.65)
-        ),
-        url("foto1.jpg") center center / cover no-repeat;
+        linear-gradient(rgba(45,5,25,.28),rgba(45,5,25,.68)),
+        url("foto1.jpg") center/cover no-repeat;
 }
 
-.portada-contenido {
-    width: 100%;
-    max-width: 500px;
-    color: white;
-    padding: 30px 20px;
+#portada:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        to top,
+        rgba(60,0,25,.35),
+        transparent 55%
+    );
+    pointer-events:none;
 }
 
-.corazon-grande {
-    font-size: 55px;
-    margin-bottom: 10px;
-    animation: latido 1.3s infinite;
+.portada-contenido{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:520px;
+    color:white;
+    animation:entradaPortada 1.4s ease;
 }
 
-@keyframes latido {
-    0%, 100% {
-        transform: scale(1);
+@keyframes entradaPortada{
+    from{
+        opacity:0;
+        transform:translateY(35px) scale(.96);
     }
-    50% {
-        transform: scale(1.13);
-    }
-}
-
-#portada h1 {
-    font-size: 44px;
-    margin-bottom: 12px;
-    text-shadow: 0 3px 12px rgba(0,0,0,.45);
-}
-
-#portada p {
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 25px;
-    text-shadow: 0 2px 8px rgba(0,0,0,.5);
-}
-
-.boton {
-    border: none;
-    background: #ffffff;
-    color: #d6336c;
-    padding: 16px 28px;
-    border-radius: 50px;
-    font-size: 17px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 8px 25px rgba(0,0,0,.25);
-}
-
-/* HISTORIA */
-
-#historia {
-    display: none;
-}
-
-.encabezado {
-    padding: 55px 20px;
-    text-align: center;
-    background: linear-gradient(135deg, #ff6f91, #d6336c);
-    color: white;
-}
-
-.encabezado h1 {
-    font-size: 38px;
-    margin-bottom: 12px;
-}
-
-.encabezado p {
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-.seccion {
-    padding: 45px 18px;
-    max-width: 900px;
-    margin: auto;
-}
-
-.titulo {
-    text-align: center;
-    color: #d6336c;
-    font-size: 30px;
-    margin-bottom: 25px;
-}
-
-/* FECHAS */
-
-.fechas {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 18px;
-}
-
-.tarjeta {
-    background: white;
-    padding: 25px 20px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 8px 25px rgba(90,30,50,.10);
-}
-
-.tarjeta .emoji {
-    font-size: 35px;
-}
-
-.tarjeta h3 {
-    color: #d6336c;
-    margin: 12px 0 8px;
-}
-
-.tarjeta p {
-    line-height: 1.6;
-}
-
-/* CONTADOR */
-
-.contador {
-    margin-top: 25px;
-    background: #ffe3ec;
-    border-radius: 20px;
-    padding: 25px 15px;
-    text-align: center;
-}
-
-#tiempoJuntos {
-    font-size: 20px;
-    font-weight: bold;
-    color: #b51f55;
-    line-height: 1.7;
-}
-
-/* GALERIA */
-
-.galeria {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-}
-
-.galeria img {
-    width: 100%;
-    height: 230px;
-    object-fit: cover;
-    border-radius: 16px;
-    box-shadow: 0 5px 15px rgba(0,0,0,.12);
-}
-
-.galeria img:first-child {
-    grid-column: 1 / -1;
-    height: 330px;
-}
-
-/* CARTA */
-
-.carta {
-    background: white;
-    padding: 30px 22px;
-    border-radius: 22px;
-    box-shadow: 0 10px 30px rgba(90,30,50,.12);
-    line-height: 1.9;
-    font-size: 17px;
-}
-
-.carta p {
-    margin-bottom: 18px;
-}
-
-.firma {
-    text-align: right;
-    color: #d6336c;
-    font-weight: bold;
-    font-size: 20px;
-}
-
-/* FINAL */
-
-.final {
-    text-align: center;
-    padding: 65px 20px;
-    color: white;
-    background: linear-gradient(135deg, #d6336c, #ff7ca3);
-}
-
-.final .corazon {
-    font-size: 65px;
-    animation: latido 1.3s infinite;
-}
-
-.final h2 {
-    font-size: 32px;
-    margin: 15px 0;
-}
-
-.final p {
-    font-size: 18px;
-    line-height: 1.7;
-    max-width: 600px;
-    margin: auto;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #9e1747;
-    color: white;
-    font-size: 14px;
-}
-
-/* CORAZONES FLOTANTES */
-
-.heart {
-    position: fixed;
-    bottom: -30px;
-    z-index: 999;
-    pointer-events: none;
-    animation: subir linear forwards;
-}
-
-@keyframes subir {
-    from {
-        transform: translateY(0);
-        opacity: .8;
-    }
-    to {
-        transform: translateY(-110vh);
-        opacity: 0;
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
     }
 }
 
-@media (min-width: 700px) {
-    .fechas {
-        grid-template-columns: repeat(2, 1fr);
+.corazon-grande{
+    font-size:60px;
+    margin-bottom:10px;
+    animation:latido 1.2s infinite;
+    filter:drop-shadow(0 4px 8px rgba(0,0,0,.3));
+}
+
+@keyframes latido{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.18)}
+}
+
+#portada h1{
+    font-size:45px;
+    margin-bottom:12px;
+    text-shadow:0 4px 15px rgba(0,0,0,.5);
+}
+
+#portada p{
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:28px;
+    text-shadow:0 2px 8px rgba(0,0,0,.6);
+}
+
+.boton{
+    border:none;
+    background:white;
+    color:#d6336c;
+    padding:17px 30px;
+    border-radius:50px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 10px 30px rgba(0,0,0,.28);
+    animation:flotarBoton 2s ease-in-out infinite;
+}
+
+@keyframes flotarBoton{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-7px)}
+}
+
+/* ================= HISTORIA ================= */
+
+#historia{
+    display:none;
+}
+
+.encabezado{
+    padding:65px 20px;
+    text-align:center;
+    background:linear-gradient(135deg,#ff6f91,#d6336c);
+    color:white;
+}
+
+.encabezado h1{
+    font-size:38px;
+    margin-bottom:14px;
+}
+
+.encabezado p{
+    max-width:600px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.7;
+}
+
+.seccion{
+    padding:50px 18px;
+    max-width:900px;
+    margin:auto;
+}
+
+.titulo{
+    text-align:center;
+    color:#d6336c;
+    font-size:29px;
+    margin-bottom:28px;
+}
+
+/* ANIMACIONES SEGURAS */
+
+.animar{
+    animation:aparecer .9s ease both;
+}
+
+@keyframes aparecer{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ================= FECHAS ================= */
+
+.fechas{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:18px;
+}
+
+.tarjeta{
+    background:white;
+    padding:27px 20px;
+    border-radius:22px;
+    text-align:center;
+    box-shadow:0 8px 28px rgba(90,30,50,.11);
+    transition:.3s;
+}
+
+.tarjeta:hover{
+    transform:translateY(-5px);
+}
+
+.tarjeta .emoji{
+    font-size:38px;
+}
+
+.tarjeta h3{
+    color:#d6336c;
+    margin:13px 0 9px;
+}
+
+.tarjeta p{
+    line-height:1.65;
+}
+
+/* ================= CONTADOR ================= */
+
+.contador{
+    margin-top:25px;
+    background:linear-gradient(135deg,#ffe3ec,#fff);
+    border-radius:22px;
+    padding:27px 15px;
+    text-align:center;
+    box-shadow:0 7px 20px rgba(100,30,60,.08);
+}
+
+#tiempoJuntos{
+    margin-top:10px;
+    font-size:20px;
+    font-weight:bold;
+    color:#b51f55;
+    line-height:1.8;
+}
+
+/* ================= GALERÍA ================= */
+
+.galeria{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:11px;
+}
+
+.foto{
+    overflow:hidden;
+    border-radius:18px;
+    box-shadow:0 6px 18px rgba(0,0,0,.15);
+}
+
+.foto img{
+    display:block;
+    width:100%;
+    height:230px;
+    object-fit:cover;
+    transition:transform .7s ease;
+}
+
+.foto img:hover{
+    transform:scale(1.08);
+}
+
+.foto:first-child{
+    grid-column:1/-1;
+}
+
+.foto:first-child img{
+    height:330px;
+}
+
+/* movimiento suave */
+
+.foto:nth-child(odd){
+    animation:fotoSuave1 5s ease-in-out infinite;
+}
+
+.foto:nth-child(even){
+    animation:fotoSuave2 5.5s ease-in-out infinite;
+}
+
+@keyframes fotoSuave1{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-5px)}
+}
+
+@keyframes fotoSuave2{
+    0%,100%{transform:translateY(-3px)}
+    50%{transform:translateY(3px)}
+}
+
+/* ================= CARTA ================= */
+
+.carta{
+    position:relative;
+    background:white;
+    padding:32px 23px;
+    border-radius:24px;
+    box-shadow:0 10px 35px rgba(90,30,50,.13);
+    line-height:1.9;
+    font-size:17px;
+}
+
+.carta:before{
+    content:"❤️";
+    position:absolute;
+    top:-20px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#fff;
+    padding:8px 12px;
+    border-radius:50%;
+    font-size:25px;
+}
+
+.carta p{
+    margin-bottom:18px;
+}
+
+.firma{
+    text-align:right;
+    color:#d6336c;
+    font-weight:bold;
+    font-size:20px;
+}
+
+/* ================= FINAL ================= */
+
+.final{
+    text-align:center;
+    padding:70px 20px;
+    color:white;
+    background:linear-gradient(135deg,#c51f59,#ff7ca3);
+}
+
+.final .corazon{
+    font-size:70px;
+    animation:latido 1.2s infinite;
+}
+
+.final h2{
+    font-size:32px;
+    margin:15px 0;
+}
+
+.final p{
+    max-width:600px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.7;
+}
+
+footer{
+    text-align:center;
+    padding:22px;
+    background:#971642;
+    color:white;
+    font-size:14px;
+}
+
+/* ================= BOTÓN MÚSICA ================= */
+
+#controlMusica{
+    display:none;
+    position:fixed;
+    right:16px;
+    bottom:18px;
+    z-index:10000;
+    border:none;
+    background:rgba(190,30,85,.94);
+    color:white;
+    padding:13px 17px;
+    border-radius:50px;
+    font-size:14px;
+    font-weight:bold;
+    box-shadow:0 7px 25px rgba(0,0,0,.25);
+    cursor:pointer;
+    backdrop-filter:blur(6px);
+}
+
+/* ================= CORAZONES ================= */
+
+.heart{
+    position:fixed;
+    bottom:-40px;
+    z-index:9999;
+    pointer-events:none;
+    animation:subir linear forwards;
+}
+
+@keyframes subir{
+    0%{
+        transform:translateY(0) rotate(0);
+        opacity:.85;
+    }
+    100%{
+        transform:translateY(-115vh) rotate(25deg);
+        opacity:0;
+    }
+}
+
+@media(min-width:700px){
+
+    .fechas{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .galeria {
-        grid-template-columns: repeat(3, 1fr);
+    .galeria{
+        grid-template-columns:repeat(3,1fr);
     }
 
-    .galeria img:first-child {
-        grid-column: span 2;
+    .foto:first-child{
+        grid-column:span 2;
     }
 }
 </style>
@@ -288,309 +397,114 @@ footer {
 
 <body>
 
-<!-- MUSICA -->
 <audio id="musica" loop preload="auto">
     <source src="cancion.mp3" type="audio/mpeg">
 </audio>
 
+<button id="controlMusica" onclick="controlarMusica()">
+    ⏸ Pausar música
+</button>
+
 <!-- PORTADA -->
+
 <section id="portada">
 
-    <div class="portada-contenido">
+<div class="portada-contenido">
 
-        <div class="corazon-grande">❤️</div>
+    <div class="corazon-grande">❤️</div>
 
-        <h1>Para Victoria</h1>
+    <h1>Para Victoria</h1>
 
-        <p>
-            Hice este pequeño rincón para guardar algo
-            que significa muchísimo para mí:
-            nuestra historia.
-        </p>
+    <p>
+        Hice este pequeño rincón para guardar algo
+        que significa muchísimo para mí:
+        nuestra historia.
+    </p>
 
-        <button class="boton" onclick="abrirRegalo()">
-            💌 Abrir mi regalo
-        </button>
-
-    </div>
-
-</section>
-
-<!-- CONTENIDO -->
-<div id="historia">
-
-    <section class="encabezado">
-
-        <h1>Nuestra historia ❤️</h1>
-
-        <p>
-            Hay personas que llegan a nuestra vida
-            y terminan convirtiéndose en nuestro lugar favorito.
-        </p>
-
-    </section>
-
-    <section class="seccion">
-
-        <h2 class="titulo">Dos fechas que cambiaron todo</h2>
-
-        <div class="fechas">
-
-            <div class="tarjeta">
-
-                <div class="emoji">✨</div>
-
-                <h3>3 de octubre de 2023</h3>
-
-                <p>
-                    El día en que nos conocimos.
-                    Sin saberlo, ese momento sería
-                    el comienzo de algo muy especial.
-                </p>
-
-            </div>
-
-            <div class="tarjeta">
-
-                <div class="emoji">❤️</div>
-
-                <h3>2 de febrero de 2025</h3>
-
-                <p>
-                    El día en que nuestra historia
-                    comenzó oficialmente como pareja.
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="contador">
-
-            <p>Y desde aquel 2 de febrero llevamos...</p>
-
-            <br>
-
-            <div id="tiempoJuntos">
-                Calculando nuestra historia... ❤️
-            </div>
-
-        </div>
-
-    </section>
-
-    <section class="seccion">
-
-        <h2 class="titulo">Nuestros recuerdos 📸</h2>
-
-        <div class="galeria">
-
-            <img src="foto1.jpg" alt="Nuestro recuerdo 1">
-
-            <img src="foto2.jpg" alt="Nuestro recuerdo 2">
-
-            <img src="foto3.jpg" alt="Nuestro recuerdo 3">
-
-            <img src="foto4.jpg" alt="Nuestro recuerdo 4">
-
-            <img src="foto5.jpg" alt="Nuestro recuerdo 5">
-
-        </div>
-
-    </section>
-
-    <section class="seccion">
-
-        <h2 class="titulo">Una carta para ti 💌</h2>
-
-        <div class="carta">
-
-            <p>
-                Victoria,
-            </p>
-
-            <p>
-                Tal vez una página no sea suficiente para explicar
-                todo lo que significas para mí, pero quería crear
-                algo que pudiera recordarnos nuestra historia.
-            </p>
-
-            <p>
-                Desde aquel 3 de octubre de 2023, cuando nos conocimos,
-                hasta el 2 de febrero de 2025, cuando comenzamos
-                oficialmente nuestra relación, cada momento ha ido
-                formando una parte muy especial de mi vida.
-            </p>
-
-            <p>
-                Gracias por cada sonrisa, cada conversación,
-                cada recuerdo y cada momento que hemos compartido.
-            </p>
-
-            <p>
-                Quiero seguir llenando nuestra historia de nuevas
-                fotografías, nuevas aventuras y muchos momentos
-                que todavía nos faltan por vivir.
-            </p>
-
-            <p>
-                Esta página es solamente un pequeño detalle,
-                pero está hecha pensando en ti. ❤️
-            </p>
-
-            <div class="firma">
-                Para ti, Victoria ❤️
-            </div>
-
-        </div>
-
-    </section>
-
-    <section class="final">
-
-        <div class="corazon">❤️</div>
-
-        <h2>Y esto apenas comienza...</h2>
-
-        <p>
-            Porque todavía quedan muchísimos recuerdos
-            por crear juntos.
-        </p>
-
-    </section>
-
-    <footer>
-        Hecho con ❤️ especialmente para Victoria
-    </footer>
+    <button class="boton" onclick="abrirRegalo()">
+        💌 Abrir mi regalo
+    </button>
 
 </div>
 
-<script>
+</section>
 
-/* ABRIR REGALO */
+<!-- HISTORIA -->
 
-function abrirRegalo() {
+<div id="historia">
 
-    var portada = document.getElementById("portada");
-    var historia = document.getElementById("historia");
-    var musica = document.getElementById("musica");
+<section class="encabezado animar">
 
-    portada.style.display = "none";
-    historia.style.display = "block";
+    <h1>Nuestra historia ❤️</h1>
 
-    window.scrollTo(0, 0);
+    <p>
+        Hay personas que llegan a nuestra vida
+        y terminan convirtiéndose en nuestro lugar favorito.
+    </p>
 
-    if (musica) {
-        musica.volume = 0.7;
+</section>
 
-        var reproduccion = musica.play();
+<section class="seccion animar">
 
-        if (reproduccion !== undefined) {
-            reproduccion.catch(function() {
-                /* Si el navegador bloquea el audio,
-                   la página seguirá funcionando normalmente. */
-            });
-        }
-    }
+<h2 class="titulo">Dos fechas que cambiaron todo</h2>
 
-    crearCorazones();
-}
+<div class="fechas">
 
+    <div class="tarjeta">
+        <div class="emoji">✨</div>
+        <h3>3 de octubre de 2023</h3>
+        <p>
+            El día en que nos conocimos.
+            Sin saberlo, ese momento sería
+            el comienzo de algo muy especial.
+        </p>
+    </div>
 
-/* CONTADOR DESDE 2 FEBRERO 2025 */
+    <div class="tarjeta">
+        <div class="emoji">❤️</div>
+        <h3>2 de febrero de 2025</h3>
+        <p>
+            El día en que nuestra historia
+            comenzó oficialmente como pareja.
+        </p>
+    </div>
 
-function actualizarContador() {
+</div>
 
-    var inicio = new Date(2025, 1, 2, 0, 0, 0);
-    var ahora = new Date();
+<div class="contador">
+    <p>Y desde aquel 2 de febrero llevamos...</p>
 
-    var diferencia = ahora.getTime() - inicio.getTime();
+    <div id="tiempoJuntos">
+        Calculando nuestra historia... ❤️
+    </div>
+</div>
 
-    if (diferencia < 0) {
-        return;
-    }
+</section>
 
-    var diasTotales = Math.floor(
-        diferencia / (1000 * 60 * 60 * 24)
-    );
+<!-- FOTOS -->
 
-    var horas = Math.floor(
-        (diferencia / (1000 * 60 * 60)) % 24
-    );
+<section class="seccion animar">
 
-    var minutos = Math.floor(
-        (diferencia / (1000 * 60)) % 60
-    );
+<h2 class="titulo">Nuestros recuerdos 📸</h2>
 
-    var segundos = Math.floor(
-        (diferencia / 1000) % 60
-    );
+<div class="galeria">
 
-    var elemento = document.getElementById("tiempoJuntos");
+    <div class="foto">
+        <img src="foto1.jpg" alt="Nuestro recuerdo">
+    </div>
 
-    if (elemento) {
+    <div class="foto">
+        <img src="foto2.jpg" alt="Nuestro recuerdo">
+    </div>
 
-        elemento.innerHTML =
-            diasTotales + " días ❤️<br>" +
-            horas + " horas · " +
-            minutos + " minutos · " +
-            segundos + " segundos";
+    <div class="foto">
+        <img src="foto3.jpg" alt="Nuestro recuerdo">
+    </div>
 
-    }
-}
+    <div class="foto">
+        <img src="foto4.jpg" alt="Nuestro recuerdo">
+    </div>
 
-actualizarContador();
-
-setInterval(actualizarContador, 1000);
-
-
-/* CORAZONES */
-
-function crearCorazon() {
-
-    var corazon = document.createElement("div");
-
-    corazon.className = "heart";
-    corazon.innerHTML = "❤️";
-
-    corazon.style.left =
-        Math.floor(Math.random() * 95) + "%";
-
-    corazon.style.fontSize =
-        (15 + Math.floor(Math.random() * 20)) + "px";
-
-    corazon.style.animationDuration =
-        (4 + Math.floor(Math.random() * 4)) + "s";
-
-    document.body.appendChild(corazon);
-
-    setTimeout(function() {
-
-        if (corazon.parentNode) {
-            corazon.parentNode.removeChild(corazon);
-        }
-
-    }, 8000);
-}
-
-function crearCorazones() {
-
-    var cantidad = 0;
-
-    var intervalo = setInterval(function() {
-
-        crearCorazon();
-
-        cantidad++;
-
-        if (cantidad >= 18) {
-            clearInterval(intervalo);
-        }
-
-    }, 300);
-}
-
-</script>
-
-</body>
-    </html>
+    <div class="foto">
+        <img src="foto5.jpg" alt="Nuestro recuerdo">
+    </div
